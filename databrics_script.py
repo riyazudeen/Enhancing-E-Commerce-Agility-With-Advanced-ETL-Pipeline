@@ -2,7 +2,7 @@ spark.conf.set("fs.s3a.access.key", "Your access key")
 spark.conf.set("fs.s3a.secret.key", "Your secret access key")
 
 # Define the path to the CSV file in the S3 bucket
-s3_path = "s3a://processedorderdata/processed.csv"
+s3_path = "your s3 file path"
 
 # Read the CSV file into a Spark DataFrame
 order_df = spark.read.csv(s3_path, header=True, inferSchema=True)
