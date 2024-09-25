@@ -46,7 +46,7 @@ uploaded_files_return = st.file_uploader(
 if uploaded_files_order and uploaded_files_return:
     if st.button("Upload", type="primary"):
         def process_and_upload(uploaded_file, bucket_name):
-            file_path = fr"C:\Users\riyaz\Downloads\{uploaded_file.name}"
+            file_path = fr"your file path {uploaded_file.name}"
             upload_file_to_s3(file_path, bucket_name, uploaded_file.name)
         
         # Create a thread pool for parallel uploads
@@ -55,11 +55,11 @@ if uploaded_files_order and uploaded_files_return:
             
             # Upload order files in parallel
             for uploaded_file in uploaded_files_order:
-                futures.append(executor.submit(process_and_upload, uploaded_file, 'flipedummyorders'))
+                futures.append(executor.submit(process_and_upload, uploaded_file, 'your budget name'))
                 
             # Upload return files in parallel
             for uploaded_file in uploaded_files_return:
-                futures.append(executor.submit(process_and_upload, uploaded_file, 'flipdummyreturned'))
+                futures.append(executor.submit(process_and_upload, uploaded_file, 'your budget name'))
                 
             # Wait for all uploads to complete
             for future in concurrent.futures.as_completed(futures):
