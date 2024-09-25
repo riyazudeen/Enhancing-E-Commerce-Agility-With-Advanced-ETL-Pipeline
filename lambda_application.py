@@ -18,14 +18,14 @@ def lambda_handler(event, context):
     returns_files = check_s3_bucket_for_files(RETURNS_BUCKET)
 
     input_data = {
-        'file1': f"s3://{ORDER_BUCKET}/ordertable.csv",
-        'file2': f"s3://{RETURNS_BUCKET}/returntable.csv"  # Replace with the second file's key
+        'file1': f"s3://{ORDER_BUCKET}/ your csv file name",
+        'file2': f"s3://{RETURNS_BUCKET}/your csv file name"  # Replace with the second file's key
     }
 
     if order_files and returns_files:
         # If files exist in both, trigger Glue ETL job
         try:
-            #response = glue_client.start_job_run(JobName='order_return_etl')
+            #response = glue_client.start_job_run(JobName='your glue job name')
             step_response = step_client.start_execution(
         stateMachineArn="Enter your arn step function",
     )
